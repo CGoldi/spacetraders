@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  application:
+    build: .
+    ports:
+      - 8000:80
+
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: phptestproject
+      MYSQL_DATABASE: phptest
+      MYSQL_USER: php
+      MYSQL_PASSWORD: phptest
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
